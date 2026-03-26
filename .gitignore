@@ -2,9 +2,6 @@
 .DS_Store
 Thumbs.db
 
-# Local reference copy (not part of Scratch-System deploy)
-team_dashboard_v2/
-
 # IDE
 .idea/
 .vscode/

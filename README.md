@@ -13,7 +13,3 @@ The Next.js app is at the **repository root** (same folder as `package.json`).
 4. Redeploy.
 
 If Root Directory is still `web`, the deployment will be wrong (empty or 404), because that folder no longer exists in this repo.
-
-### Local reference
-
-If you keep a copy of another project under `team_dashboard_v2/` for comparison, it is **gitignored** and excluded from TypeScript/ESLint so it does not break this app’s build.
