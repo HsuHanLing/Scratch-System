@@ -1,0 +1,5 @@
+{
+  "name": "scratch-system",
+  "private": true,
+  "description": "Monorepo root — Next.js app is in ./web. Vercel uses root vercel.json to build web/."
+}
