@@ -1,16 +1,19 @@
 # Scratch-System
 
-Reference Python simulation (`scratch_card_simulation(1).py`) and the **Next.js scratch reward simulator** in [`web/`](./web/).
+- **Python reference:** `scratch_card_simulation(1).py`
+- **Scratch reward simulator (Next.js):** `app/`, `components/`, `lib/` at this repo root
 
-## Deploy on Vercel (required setup)
+## Deploy on Vercel
 
-The Next.js app lives in **`web/`**. Vercel’s Next.js builder only reads **`package.json` in the project Root Directory**, so it must see the folder that contains `next` in `dependencies`.
+The Next.js app is at the **repository root** (same folder as `package.json`).
 
-1. Open your project on Vercel → **Settings** → **Build & Deployment**.
-2. Under **Root Directory**, click **Edit**, set it to **`web`**, then **Save**.
-3. Clear any old overrides from the failed setup: under **Build & Development Settings**, turn **off** overrides for **Install Command** and **Build Command** (use defaults), unless you know you need them.
-4. **Redeploy** the latest `main` commit.
+1. Vercel → **Settings** → **Build & Deployment** → **Root Directory** must be **empty** or **`.`** (not `web`). If you previously set `web`, **clear it** and save.
+2. **Framework Preset:** Next.js (auto-detected).
+3. Use default **Install** / **Build** commands (`npm install`, `npm run build`).
+4. Redeploy.
 
-Without Root Directory = **`web`**, the build uses the repo root `package.json` (no `next`), and you get: *“No Next.js version detected”*.
+If Root Directory is still `web`, the deployment will be wrong (empty or 404), because that folder no longer exists in this repo.
 
-After a successful deploy, your `.vercel.app` URL should load the simulator.
+### Local reference
+
+If you keep a copy of another project under `team_dashboard_v2/` for comparison, it is **gitignored** and excluded from TypeScript/ESLint so it does not break this app’s build.
