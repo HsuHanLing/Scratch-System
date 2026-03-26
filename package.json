@@ -1,11 +1,11 @@
 {
-  "name": "scratch-system-repo",
+  "name": "scratch-system",
   "private": true,
-  "description": "Next.js app lives in ./web (Vercel Root Directory must be web). This file has no next dependency on purpose.",
+  "workspaces": ["web"],
   "scripts": {
-    "dev": "npm run dev --prefix web",
-    "build": "npm run build --prefix web",
-    "start": "npm run start --prefix web",
-    "lint": "npm run lint --prefix web"
+    "dev": "npm run dev -w web",
+    "build": "npm run build -w web",
+    "start": "npm run start -w web",
+    "lint": "npm run lint -w web"
   }
 }

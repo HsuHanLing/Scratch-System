@@ -1,24 +1,18 @@
 # Scratch-System
 
 - **Python reference:** `scratch_card_simulation(1).py` (repo root)
-- **Scratch reward simulator (Next.js):** [`web/`](./web/) — all `next`, `react`, and app code is there
+- **Next.js app:** [`web/`](./web/) (npm workspace `web`)
 
 ## Local dev
 
-From repo root:
-
 ```bash
-npm install --prefix web && npm run dev --prefix web
+npm install
+npm run dev
 ```
-
-Or `cd web && npm install && npm run dev`.
 
 ## Deploy on Vercel
 
-1. **Settings → Build & Deployment → Root Directory:** set to **`web`** (required).  
-   The repo root `package.json` intentionally does **not** include `next`, so Vercel must use **`web/`** where `web/package.json` lives.
-2. Framework: **Next.js** (auto-detected from `web/`).
-3. Use default **Install** (`npm install` or `npm ci`) and **Build** (`npm run build`) — they run inside `web/`.
-4. Redeploy.
-
-If Root Directory is **`.`** (repo root), the build fails with *“No Next.js version detected”* — that is expected.
+1. **Root Directory:** **`.`** (repository root) — do **not** set `web` when using the root `vercel.json` + workspaces.
+2. **Framework Preset:** should pick up **Next.js** from `vercel.json`. If it shows **Other**, switch it to **Next.js** manually.
+3. **Output Directory:** must be **empty** / default (not `public`). If you see *“No Output Directory named public”*, open **Settings → Build & Deployment → Build & Development Settings**, find **Output Directory**, clear the override, save, redeploy.
+4. Install and build use the root `package.json` (`npm ci`, `npm run build`), which builds the `web` workspace.
